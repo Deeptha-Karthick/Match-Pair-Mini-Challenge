@@ -1,0 +1,42 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.container {
+  display: grid;
+  width: 25%;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal-width columns */
+  gap: 10px; /* Optional: Adds spacing between grid items */
+}
+
+.item {
+  text-align: center; /* Optional: Centers content inside each item */
+  padding: 10px; /* Optional: Adds padding inside each item */
+  border: 1px solid black; /* Optional: Adds a border for visibility */
+  font-size: 40px;
+  border-radius: 2px;
+  box-shadow: 0px 5px lightgray;
+  transition: transform 0.2s ease-in-out; /* Smooth rotation */
+  background-color: yellow;
+  /* backface-visibility: hidden; */
+}
+
+.item.unclicked {
+  transform: rotateY(180deg); /* Default state */
+}
+
+.item.clicked {
+  transform: rotateY(0); /* Rotate to show the flipped state */
+}
+
+.item span {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.6s, opacity 0.3s ease-in-out; /* Visibility after rotation */
+}
+
+.item.clicked span {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
